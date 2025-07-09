@@ -25,12 +25,17 @@ As camadas típicas em uma clean architecture incluem:
 
 **Interfaces do usuário (UI), frameworks e drivers**: esta camada contém as interfaces com o usuário, como interfaces web, APIs REST, interfaces de linha de comando etc. Ela é responsável por receber as solicitações do usuário, apresentar informações e coletar entradas, mas não contém lógica de negócios. Esta camada também contém os detalhes de implementação específicos, como frameworks, bibliotecas e drivers. Ela inclui código para lidar com detalhes de infraestrutura, como acesso a dados, comunicação de rede etc. Esses detalhes são encapsulados e isolados das camadas internas da aplicação.
 
-## 🔨 Objetivos do projeto
+## Entity X Value Objects
 
-- Conhecer os diferentes tipos de arquitetura de software;
-- Aprender os princípios da Clean Architecture;
-- Implementar um projeto com separação de responsabilidades e isolamento do domínio;
-- Entender sobre entidades, objetos de valor, casos de uso, repositórios e controladores;
-- Analisar os prós e contras de arquiteturas que utilizam muitas camadas de abstração.
+No contexto da clean architecture, as entidades e objetos de valor são conceitos fundamentais que ajudam a modelar o domínio da aplicação de forma coesa e semântica. Eles desempenham papéis distintos na representação dos conceitos do domínio e na estruturação do código.
 
+As entidades (entities) representam os objetos principais do domínio da aplicação. Elas têm identidade própria e são mutáveis, o que significa que as mudanças em seus atributos refletem mudanças no estado do sistema. As entidades são geralmente associadas a conceitos do domínio que têm vida útil longa e são distinguidos por suas características únicas.
+
+Por exemplo, em um sistema de gerenciamento de biblioteca, um livro pode ser considerado uma entidade. Ele tem um ISBN (Número Padrão Internacional de Livro) que é único e permite que você identifique esse livro específico, não importa se o título ou o autor mudarem. As entidades encapsulam a lógica de negócios relacionada a si mesmas e são o cerne do modelo de domínio.
+
+Os objetos de valor (value objects) representam valores que são importantes para o domínio da aplicação, mas não têm identidade própria. Eles são imutáveis, ou seja, uma vez criados, seus valores não podem ser alterados. Os objetos de valor são geralmente usados para modelar conceitos do domínio que são definidos exclusivamente por seus atributos, sem identidade distinta.
+
+Por exemplo, um objeto de valor comum poderia ser "Endereço", que incluiria atributos como rua, cidade, estado, CEP etc. Cada instância de "Endereço" é distinta apenas pelos seus atributos e pode ser comparada com outras instâncias baseadas nesses valores.
+
+A distinção entre entidades e objetos de valor é importante na clean architecture porque ajuda a definir limites claros entre conceitos de domínio e detalhes de implementação. As entidades encapsulam a lógica de negócios central da aplicação e representam conceitos que têm identidade própria e ciclo de vida longo. Por outro lado, os objetos de valor representam valores que são importantes para o domínio, mas não têm identidade própria e são usados principalmente para definir tipos imutáveis e semânticos.
 
