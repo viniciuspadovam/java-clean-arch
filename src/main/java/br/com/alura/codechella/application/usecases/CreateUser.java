@@ -1,13 +1,13 @@
 package br.com.alura.codechella.application.usecases;
 
-import br.com.alura.codechella.application.gateways.UserRepository;
+import br.com.alura.codechella.application.gateways.IUserRepository;
 import br.com.alura.codechella.domain.entity.user.User;
 
 public class CreateUser {
 	
-	private final UserRepository userRepository;
+	private final IUserRepository userRepository;
 	
-	public CreateUser(UserRepository userRepository) {
+	public CreateUser(IUserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 	

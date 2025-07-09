@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.com.alura.codechella.domain.entity.user.User;
 
-public interface UserRepository {
+public interface IUserRepository {
 	
 	User create(User user);
 	
