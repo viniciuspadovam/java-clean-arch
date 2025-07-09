@@ -26,8 +26,10 @@ public class UserRepositoryJpa implements IUserRepository {
 
 	@Override
 	public List<User> listAll() {
-		// return userRepository.findAll();
-		return null;
+		List<UserEntity> allUsers = userRepository.findAll();
+		return allUsers.stream()
+			.map(userEntityMapper::toDomain)
+			.toList();
 	}
 
 }
