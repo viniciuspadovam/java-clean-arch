@@ -2,10 +2,10 @@ package br.com.alura.codechella.nottouse.service;
 
 import java.util.List;
 
-import br.com.alura.codechella.nottouse.model.Usuario;
+import br.com.alura.codechella.infra.persistence.UserEntity;
 
 public interface UsuarioService {
-    Usuario cadastrarUsuario(Usuario usuario);
+    UserEntity cadastrarUsuario(UserEntity usuario);
 
-    List<Usuario> listarTodos();
+    List<UserEntity> listarTodos();
 }

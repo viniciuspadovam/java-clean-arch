@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.alura.codechella.nottouse.model.Usuario;
+import br.com.alura.codechella.infra.persistence.UserEntity;
 import br.com.alura.codechella.nottouse.repository.UsuarioRepository;
 
 @Service
@@ -14,12 +14,12 @@ public class UsuarioServiceImpl implements UsuarioService {
     private UsuarioRepository repository;
 
     @Override
-    public Usuario cadastrarUsuario(Usuario usuario) {
+    public UserEntity cadastrarUsuario(UserEntity usuario) {
         return repository.save(usuario);
     }
 
     @Override
-    public List<Usuario> listarTodos() {
+    public List<UserEntity> listarTodos() {
         return repository.findAll();
     }
 }

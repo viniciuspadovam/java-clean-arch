@@ -51,3 +51,21 @@ Para definir bem os casos de uso dentro da arquitetura limpa, você pode seguir 
 - **Descrever os fluxos de eventos**: para cada caso de uso, descreva os fluxos de eventos que representam as diferentes interações entre os atores e o sistema. Isso inclui os passos necessários para completar a funcionalidade, bem como os possíveis cenários de exceção.
 - **Implementar os casos de uso na camada de regras de negócio**: após definir os casos de uso, você pode implementá-los na camada de regras de negócio da arquitetura limpa. Cada caso de uso deve ser uma classe ou um componente que encapsula a lógica de negócios correspondente.
 - **Testar os casos de uso de forma isolada**: certifique-se de testar cada caso de uso de forma isolada para garantir que eles funcionem conforme o esperado. Isso pode ser feito utilizando testes unitários e testes de integração.
+
+## Gateways na Clean Arch
+
+Em um sistema que segue os princípios da clean architecture, os pacotes denominados "gateways" podem ser encontrados tanto no pacote de aplicação (application) quanto no pacote de infraestrutura (infra). Embora ambos os tipos de gateways sirvam para lidar com interações externas ao núcleo da aplicação, eles têm propósitos e responsabilidades ligeiramente diferentes.
+
+Vamos explorar cada um deles:
+
+**Gateways no pacote de aplicação (application)**
+
+Os gateways no pacote de aplicação são responsáveis por definir interfaces abstratas ou contratos para interações externas necessárias para que os casos de uso (use cases) sejam executados. Eles representam a maneira como os casos de uso interagem com o mundo externo e são definidos em termos de operações de alto nível que o sistema precisa realizar.
+
+Por exemplo, um gateway de repositório no pacote de aplicação pode definir uma interface `IUserRepository` com métodos como `listAll`, `create`, `delete` etc. Essa interface representa a maneira como os casos de uso interagem com o armazenamento de dados, mas não especifica a implementação concreta dessas operações.
+
+**Gateways no Pacote de Infraestrutura (infra)**
+
+Os gateways no pacote de infraestrutura são responsáveis por implementar os contratos definidos pelos gateways no pacote de aplicação. Eles fornecem implementações concretas para as operações definidas nas interfaces de gateway, utilizando tecnologias específicas de infraestrutura, como acesso a bancos de dados, comunicação de rede etc.
+
+Continuando com o exemplo anterior, no pacote de infraestrutura, poderíamos ter uma implementação concreta de `IUserRepository`, usando JDBC, JPA, Hibernate ou qualquer outro framework de persistência. Essa implementação específica é responsável por traduzir as operações de alto nível definidas na interface de gateway em chamadas concretas para o banco de dados, como fizemos com a classe `UserRepositoryJpa`.
